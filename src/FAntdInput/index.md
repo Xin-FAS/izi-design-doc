@@ -9,7 +9,7 @@ title: FAntdInput 输入框
 ### 双向绑定
 
 ```jsx
-import FAntdInput from 'izi-design-doc/FAntdInput';
+import { FAntdInput } from 'izid';
 import { useState, useEffect, useRef } from 'react';
 
 export default () => {
@@ -32,7 +32,7 @@ export default () => {
 使用F12打开控制台查看输出
 
 ```jsx
-import FAntdInput from 'izi-design-doc/FAntdInput';
+import { FAntdInput } from 'izid';
 import { useState } from 'react';
 
 export default () => {
@@ -56,7 +56,7 @@ export default () => {
 使用F12打开控制台查看输出
 
 ```jsx
-import FAntdInput from 'izi-design-doc/FAntdInput';
+import { FAntdInput } from 'izid';
 import { useState } from 'react';
 
 export default () => {
@@ -78,7 +78,7 @@ export default () => {
 使用F12打开控制台查看输出
 
 ```jsx
-import FAntdInput from 'izi-design-doc/FAntdInput';
+import { FAntdInput } from 'izid';
 import { useState } from 'react';
 
 export default () => {
@@ -101,7 +101,7 @@ export default () => {
 ### 密码输入框
 
 ```jsx
-import FAntdInput from 'izi-design-doc/FAntdInput';
+import { FAntdInput } from 'izid';
 import { useState } from 'react';
 
 export default () => {
@@ -117,7 +117,7 @@ export default () => {
 ### 单次密码输入框
 
 ```jsx
-import FAntdInput from 'izi-design-doc/FAntdInput';
+import { FAntdInput } from 'izid';
 import { useState } from 'react';
 
 export default () => {
@@ -133,7 +133,7 @@ export default () => {
 ### 文本框
 
 ```jsx
-import FAntdInput from 'izi-design-doc/FAntdInput';
+import { FAntdInput } from 'izid';
 import { useState } from 'react';
 
 export default () => {
