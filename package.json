@@ -11,9 +11,7 @@
     "build:watch": "father dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
-    "prepare": "husky install && dumi setup",
     "doctor": "father doctor",
-    "lint": "npm run lint:es && npm run lint:css",
     "prepublishOnly": "father doctor && npm run build",
     "prestart": "npm update izid"
   },
@@ -33,11 +31,12 @@
     "dumi": "^2.4.13",
     "dumi-theme-antd-style": "^0.31.1",
     "father": "^4.1.0",
-    "husky": "^8.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "izid": "0.1.4-alpha.1"
+    "antd": "^5.24.4",
+    "izid": "0.1.4-alpha.1",
+    "lodash-es": "^4.17.21"
   }
 }
