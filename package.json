@@ -1,0 +1,43 @@
+{
+  "name": "izi-design-doc",
+  "version": "0.0.1",
+  "description": "izi-design 的文档库",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "dumi dev",
+    "build": "father build",
+    "build:watch": "father dev",
+    "docs:build": "dumi build",
+    "docs:preview": "dumi preview",
+    "prepare": "husky install && dumi setup",
+    "doctor": "father doctor",
+    "lint": "npm run lint:es && npm run lint:css",
+    "prepublishOnly": "father doctor && npm run build",
+    "prestart": "npm update izid"
+  },
+  "authors": [],
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "devDependencies": {
+    "dumi": "^2.4.13",
+    "dumi-theme-antd-style": "^0.31.1",
+    "father": "^4.1.0",
+    "husky": "^8.0.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "izid": "0.1.4-alpha.1"
+  }
+}
