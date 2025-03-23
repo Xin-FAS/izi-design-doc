@@ -13,7 +13,8 @@
     "docs:preview": "dumi preview",
     "doctor": "father doctor",
     "prepublishOnly": "father doctor && npm run build",
-    "prestart": "npm update izid"
+    "prestart": "npm update izid",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "authors": [],
   "license": "MIT",
