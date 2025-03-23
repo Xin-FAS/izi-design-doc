@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkizi_design_doc=self.webpackChunkizi_design_doc||[]).push([[860],{72007:function(s,e,_){var i=_(70623),n=_(85893);e.Z=function(){return(0,n.jsx)(i.Z,{bottom:"\xA9 2025 izi-design"})}}}]);
