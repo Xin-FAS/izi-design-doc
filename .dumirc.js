@@ -2,6 +2,8 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   outputPath: 'docs-dist',
+  base: '/izi-design-doc/',
+  publicPath: '/izi-design-doc/',
   themeConfig: {
     name: 'izi-design-doc',
     apiHeader: false,
