@@ -11,6 +11,7 @@ title: FAntdInput 输入框
 ```jsx
 import { FAntdInput } from 'izid';
 import { useState, useEffect, useRef } from 'react';
+import { Button } from 'antd'
 
 export default () => {
     const state = useState();
@@ -19,13 +20,67 @@ export default () => {
     useEffect(() => {
         inputRef.current?.focus()
     }, []);
+    
+    const setHello = () => {
+        state[1](value => value + 'Hello World')
+    }
 
     return <>
         <p>Input Value：{state[0]}</p>
         <FAntdInput state={state} ref={inputRef} />
+        <p><Button type={'primary'} onClick={setHello}>Hello World</Button></p>
     </>;
 }
 ```
+
+### 搜索模式
+
+使用F12打开控制台查看输出
+
+```jsx
+import { FAntdInput } from 'izid';
+import { useState } from 'react';
+
+export default () => {
+    const state = useState();
+
+    const onSearch = value => {
+        console.log('触发搜索：', value)
+    }
+
+    return <>
+        <p>Input Value：{state[0]}</p>
+        <FAntdInput.Search state={state} onSearch={onSearch} />
+    </>;
+}
+```
+
+### 配合表单使用
+
+在表单中方法使用同Antd Input，使用F12打开控制台查看输出
+
+```jsx
+import { FAntdInput } from 'izid';
+import { useState } from 'react';
+import { Form, Button } from 'antd'
+
+export default () => {
+    const onFinish = data => {
+        console.log('表单提交：', data)
+    }
+    
+    return <Form onFinish={onFinish}>
+        <Form.Item label={'输入框'} name={'value'}>
+            <FAntdInput />
+        </Form.Item>
+        <Form.Item>
+            <Button type={'primary'} htmlType="submit">提交</Button>
+        </Form.Item>
+    </Form>;
+}
+```
+
+> 你不能在表单中使用setState去修改表单域的值，详见：[FormItem](https://ant-design.antgroup.com/components/form-cn#formitem)
 
 ### 自动搜索
 
@@ -50,28 +105,6 @@ export default () => {
 ```
 
 可以使用`debounceDuration`属性控制防抖时间，默认`500`（毫秒）
-
-### 搜索框
-
-使用F12打开控制台查看输出
-
-```jsx
-import { FAntdInput } from 'izid';
-import { useState } from 'react';
-
-export default () => {
-    const state = useState();
-
-    const onSearch = value => {
-        console.log('触发搜索：', value)
-    }
-
-    return <>
-        <p>Input Value：{state[0]}</p>
-        <FAntdInput.Search state={state} onSearch={onSearch} />
-    </>;
-}
-```
 
 ### 节流搜索
 
