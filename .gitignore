@@ -1,10 +1,13 @@
 node_modules
 /dist
+/docs-dist
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production
 .DS_Store
 .idea/
+.vscode/
+.husky/
 *.yaml
 docs-dist
 
