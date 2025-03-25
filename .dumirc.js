@@ -66,7 +66,7 @@ export default defineConfig({
     ]
   },
   styles: [
-      'h2 { margin-top: 40px }',
+      'h2:not(.dumi-antd-style-content > div:first-child > div:first-child > h2) { margin-top: 40px }',
       'h3:not(h2 + h3) { margin-top: 35px }',
       '.dumi-default-previewer-demo { padding: 35px 24px !important }',
       '.dumi-default-previewer { margin: 20px 0 20px !important }',
