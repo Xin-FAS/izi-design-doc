@@ -20,9 +20,9 @@ export default () => {
     useEffect(() => {
         inputRef.current?.focus()
     }, []);
-    
+
     const setHello = () => {
-        state[1](value => value + 'Hello World')
+        state[1]('Hello World')
     }
 
     return <>
@@ -54,33 +54,6 @@ export default () => {
     </>;
 }
 ```
-
-### 配合表单使用
-
-在表单中方法使用同Antd Input，使用F12打开控制台查看输出
-
-```jsx
-import { FAntdInput } from 'izid';
-import { useState } from 'react';
-import { Form, Button } from 'antd'
-
-export default () => {
-    const onFinish = data => {
-        console.log('表单提交：', data)
-    }
-    
-    return <Form onFinish={onFinish}>
-        <Form.Item label={'输入框'} name={'value'}>
-            <FAntdInput />
-        </Form.Item>
-        <Form.Item>
-            <Button type={'primary'} htmlType="submit">提交</Button>
-        </Form.Item>
-    </Form>;
-}
-```
-
-> 你不能在表单中使用setState去修改表单域的值，详见：[FormItem](https://ant-design.antgroup.com/components/form-cn#formitem)
 
 ### 自动搜索
 
@@ -131,6 +104,54 @@ export default () => {
 * 使用`throttleDuration`属性控制防抖时间，默认`0`（毫秒）
 * 使用`throttleTrailing`属性控制时间结束后是否再次搜索，默认`false`
 
+### 数字输入框
+
+```jsx
+import { FAntdInput } from 'izid';
+import { useState } from 'react';
+
+export default () => {
+    const state = useState();
+
+    return <>
+        <p>Input Value：{state[0]}</p>
+        <FAntdInput.Number state={state} strict />
+    </>;
+}
+```
+
+### 货币输入框
+
+```jsx
+import { FAntdInput } from 'izid';
+import { useState } from 'react';
+
+export default () => {
+    const state = useState();
+
+    return <>
+        <p>Input Value：{state[0]}</p>
+        <FAntdInput.Number state={state} mode={'price'} />
+    </>;
+}
+```
+
+### 百分比输入框
+
+```jsx
+import { FAntdInput } from 'izid';
+import { useState } from 'react';
+
+export default () => {
+    const state = useState();
+
+    return <>
+        <p>Input Value：{state[0]}</p>
+        <FAntdInput.Number state={state} mode={'percent'} />
+    </>;
+}
+```
+
 ### 密码输入框
 
 ```jsx
@@ -179,27 +200,49 @@ export default () => {
 }
 ```
 
-## FAntdInput
+### 配合表单使用
 
-### Props
+在表单中方法使用同Antd Input，使用F12打开控制台查看输出
+
+```jsx
+import { FAntdInput } from 'izid';
+import { useState } from 'react';
+import { Form, Button } from 'antd'
+
+export default () => {
+    const onFinish = data => {
+        console.log('表单提交：', data)
+    }
+
+    return <Form onFinish={onFinish}>
+        <Form.Item label={'输入框'} name={'value'}>
+            <FAntdInput />
+        </Form.Item>
+        <Form.Item>
+            <Button type={'primary'} htmlType="submit">提交</Button>
+        </Form.Item>
+    </Form>;
+}
+```
+
+>
+你不能在表单中使用setState去修改表单域的值，详见：[FormItem](https://ant-design.antgroup.com/components/form-cn#formitem)
+
+## API
+
+### FAntdInput
+配置项继承[Antd Input](https://ant-design.antgroup.com/components/input-cn#api)
+
+#### Props
 
 | 属性名   | 类型     | 是否必填  | 说明                      | 默认值 |
 |:------|:-------|:------|:------------------------|:----|
 | state | string | false | useState创建的state，用于双向绑定 |     |
 
-其他Props同Antd Input
+### FAntdInput.Search
+配置项继承[Antd Input.Search](https://ant-design.antgroup.com/components/input-cn#inputsearch)
 
-### Method
-
-Method与Antd Input相同
-
-### Ref
-
-Ref与Input相同
-
-## FAntdInput.Search
-
-### Props
+#### Props
 
 | 属性名              | 类型       | 是否必填  | 说明                      | 默认值   |
 |:-----------------|:---------|:------|:------------------------|:------|
@@ -209,19 +252,17 @@ Ref与Input相同
 | throttleDuration | number   | false | 触发搜索事件时节流时间             | 0     |
 | throttleTrailing | boolean  | false | 节流搜索时间结束后是否再次触发搜索       | false |
 
-其他Props同Antd Input
+### FAntdInput.Number
+配置项继承[Antd InputNumber](https://ant-design.antgroup.com/components/input-number-cn#api)
 
-### Method
+#### Props
 
-Method与Antd Input相同
+| 属性名    | 类型                | 是否必填  | 说明                                 | 默认值   |
+|:-------|:------------------|:------|:-----------------------------------|:------|
+| state  | string            | false | useState创建的state，用于双向绑定            |       |
+| mode   | `price` `percent` | false | `price`价格模式、`percent`百分比模式，出现固定的格式 |       |
+| strict | boolean           | false | 严格限制，限制为正整数、步长为1、百分比模式下限制最大值100    | false |
 
-### Ref
+### 其他FAntdInput.XXX
 
-Ref与Input相同
-
-## FAntdInput.OTP
-与Antd Input.OTP相同
-## FAntdInput.Password
-与Antd Input.Password相同
-## FAntdInput.TextArea
-与Antd Input.TextArea相同
+与Antd Input.XXX相同，[Antd Input](https://ant-design.antgroup.com/components/input-cn#api)

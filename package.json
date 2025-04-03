@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "antd": "^5.24.4",
-    "izid": "0.1.7",
+    "izid": "0.1.8",
     "lodash-es": "^4.17.21"
   }
 }
