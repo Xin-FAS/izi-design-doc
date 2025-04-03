@@ -6,9 +6,20 @@ title: Demo 示例组件
 
 这是一个Demo组件，用来做文档示例
 
-### 基础使用
+### 使用线上已发布组件
+
 ```jsx
 import { Demo } from 'izid'
+
+export default () => {
+    return <Demo />
+}
+```
+
+### 使用本地开发时组件
+
+```jsx
+import Demo from '@/Demo'
 
 export default () => {
     return <Demo />
